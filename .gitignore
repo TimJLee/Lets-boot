@@ -4,3 +4,6 @@
 application-real-oauth.properties
 build
 out
+
+#oauth 키 누출 방지
+application-oauth.properties
