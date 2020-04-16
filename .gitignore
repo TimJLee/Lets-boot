@@ -7,3 +7,6 @@ out
 
 #oauth 키 누출 방지
 application-oauth.properties
+
+#.ppk 파일 누출 방지
+*.ppk
