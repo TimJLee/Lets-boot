@@ -16,6 +16,21 @@ cache:
 # master 브랜치에 푸시되었을 때 수행. 프로젝트 내부에 둔 gradlew 을 통해 clean & build 수행
 script: "./gradlew clean build"
 
+before_deploy:
+  - zip -r Lets-boot *
+  - mkdir -p deploy
+  - mv Lets-boot.zip deploy/Lets-boot.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: lets-boot-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
 # CI 실행 완료 시 메일로 알람
 notifications:
   email:
