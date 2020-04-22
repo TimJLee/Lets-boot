@@ -1,0 +1,6 @@
+version: 0.0 # codedeploy version
+os: linux
+files:
+  - source: / # codedeploy 로부터 온 모든 파일을 destination 으로 이동
+    destination: /home/ec2-user/app/step2/zip/ # 파일 받을 위치
+    overwrite: yes # 기존 파일 덮어쓸지 옵션 설정 - yes 이므로 덮어씀
